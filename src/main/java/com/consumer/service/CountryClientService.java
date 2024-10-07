@@ -3,18 +3,25 @@ package com.consumer.service;
 //import localhost._8080.soap_service.GetCountryRequest;
 //import localhost._8080.soap_service.GetCountryResponse;
 
+import com.dataaccess.webservicesserver.NumberToWords;
+import com.dataaccess.webservicesserver.NumberToWordsResponse;
 import org.oorsprong.websamples.CapitalCity;
 import org.oorsprong.websamples.CapitalCityResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
+import java.math.BigInteger;
+
 @Service
+
 public class CountryClientService {
 
     private final WebServiceTemplate webServiceTemplate;
+    private final WebServiceTemplate webServiceTemplateForCurrency;
 
-    public CountryClientService(WebServiceTemplate webServiceTemplate) {
+    public CountryClientService(WebServiceTemplate webServiceTemplate, WebServiceTemplate webServiceTemplateForCurrency) {
         this.webServiceTemplate = webServiceTemplate;
+        this.webServiceTemplateForCurrency = webServiceTemplateForCurrency;
     }
 
 //    public GetCountryResponse getCountry(String countryName) {
@@ -37,6 +44,12 @@ public class CountryClientService {
         return response;
     }
 
+    public NumberToWordsResponse getWord(String ubiNum) {
+        NumberToWords request = new NumberToWords();
+        request.setUbiNum(BigInteger.valueOf(Long.parseLong(ubiNum)));
+
+        return (NumberToWordsResponse) webServiceTemplateForCurrency.marshalSendAndReceive(request);
+    }
 
 }
 

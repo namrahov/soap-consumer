@@ -86,8 +86,16 @@
                         </goals>
                         <configuration>
                             <wsdlOptions>
+                                <!-- First WSDL for CountryInfoService -->
                                 <wsdlOption>
                                     <wsdl>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</wsdl>
+                                    <extraargs>
+                                        <extraarg>-verbose</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+                                <!-- Second WSDL for NumberConversionService -->
+                                <wsdlOption>
+                                    <wsdl>https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL</wsdl>
                                     <extraargs>
                                         <extraarg>-verbose</extraarg>
                                     </extraargs>

@@ -29,12 +29,32 @@ public class SoapClientConfig {
     }
 
     @Bean
+    public WebServiceTemplate webServiceTemplateForCurrency(Jaxb2Marshaller marshaller) {
+        WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
+
+        // Set the marshaller and unmarshaller
+        webServiceTemplate.setMarshaller(marshaller);
+        webServiceTemplate.setUnmarshaller(marshaller);
+
+        // Set the default URI for the SOAP service
+        webServiceTemplate.setDefaultUri("https://www.dataaccess.com/webservicesserver/NumberConversion.wso");
+
+        // Set the message sender with HTTP components
+        HttpComponentsMessageSender messageSender = new HttpComponentsMessageSender();
+        webServiceTemplate.setMessageSender(messageSender);
+
+        return webServiceTemplate;
+    }
+
+    @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         // Specify the package where the generated JAXB classes are located
-        marshaller.setContextPath("com.consumer.generated");
+        marshaller.setContextPath("com.consumer.generated:com.consumer.webservicesserver");
         return marshaller;
     }
+
+
 }
 
 
