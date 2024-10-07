@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">
+    <soapenv:Header/>
+    <soapenv:Body>
+       <web:NumberToWords>
+          <web:ubiNum>123</web:ubiNum>
+       </web:NumberToWords>
+    </soapenv:Body>
+ </soapenv:Envelope>
+
+
+ <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">
+     <soapenv:Header/>
+     <soapenv:Body>
+        <web:CapitalCity>
+           <web:sCountryISOCode>US</web:sCountryISOCode>
+        </web:CapitalCity>
+     </soapenv:Body>
+  </soapenv:Envelope>
