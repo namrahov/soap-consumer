@@ -25,10 +25,7 @@ public class CountryClientService {
 //    }
 
 
-    private static final String SOAP_URL = "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL";
-    private static final String NAMESPACE_URI = "http://www.oorsprong.org/websamples.countryinfo";
-
-    public String getCapitalCity(String countryISOCode) {
+    public CapitalCityResponse getCapitalCity(String countryISOCode) {
         // Create the request object using the generated JAXB class
         CapitalCity request = new CapitalCity();
         request.setSCountryISOCode(countryISOCode);
@@ -37,7 +34,7 @@ public class CountryClientService {
         CapitalCityResponse response = (CapitalCityResponse) webServiceTemplate.marshalSendAndReceive(request);
 
         // Extract the capital city result
-        return response.getCapitalCityResult();
+        return response;
     }
 
 

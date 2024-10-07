@@ -23,7 +23,7 @@ public class CountryController {
 //    }
 
     @GetMapping("/getCapitalCity/{countryCode}")
-    public String getCapitalCity(@PathVariable String countryCode) {
+    public CapitalCityResponse getCapitalCity(@PathVariable String countryCode) {
         return countryClientService.getCapitalCity(countryCode);
     }
 }
