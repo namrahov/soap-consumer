@@ -50,7 +50,7 @@ public class SoapClientConfig {
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         // Specify the package where the generated JAXB classes are located
-        marshaller.setContextPath("com.consumer.generated:com.consumer.webservicesserver");
+        marshaller.setContextPath("com.consumer.generated");
         return marshaller;
     }
 
