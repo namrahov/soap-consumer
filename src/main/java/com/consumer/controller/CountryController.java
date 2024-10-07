@@ -1,7 +1,6 @@
 package com.consumer.controller;
 
 import com.consumer.service.CountryClientService;
-//import localhost._8080.soap_service.GetCountryResponse;
 import com.dataaccess.webservicesserver.NumberToWordsResponse;
 import org.oorsprong.websamples.CapitalCityResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +16,6 @@ public class CountryController {
     public CountryController(CountryClientService countryClientService) {
         this.countryClientService = countryClientService;
     }
-
-//    @GetMapping("/getCountry")
-//    public GetCountryResponse getCountry(@RequestParam String name) {
-//        return countryClientService.getCountry(name);
-//    }
 
     @GetMapping("/getCapitalCity/{countryCode}")
     public CapitalCityResponse getCapitalCity(@PathVariable String countryCode) {

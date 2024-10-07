@@ -1,6 +1,5 @@
 package com.consumer.config;
 
-import org.apache.http.impl.client.HttpClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -53,7 +52,6 @@ public class SoapClientConfig {
         marshaller.setContextPath("com.consumer.generated");
         return marshaller;
     }
-
 
 }
 
